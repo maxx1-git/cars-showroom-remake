@@ -1,0 +1,86 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- === Global Settings === -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Premium Motors - Luxury Car Showroom. Discover our exclusive collection of high-performance vehicles." />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+    <title>{% block title %} {% endblock title %}</title>
+
+    <!-- === Fonts === -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <!-- =========================== -->
+    <!-- === Navigation Section === -->
+    <!-- ========================= -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="{% url 'index' %}" class="navbar-logo">
+                Premium<span>Motors</span>
+            </a>
+
+            <ul class="navbar-menu">
+                <li>
+                    <a href="{% url 'index' %}"
+                        class="navbar-link {% if request.resolver_match.url_name == 'index' %} active {% endif %}">Home</a>
+                </li>
+                <li>
+                    <a href="{% url 'store' %}"
+                        class="navbar-link {% if request.resolver_match.url_name == 'store' %} active {% endif %}">Showroom</a>
+                </li>
+
+                <li>
+                    <a href="{% url 'index' %}#features" class="navbar-link">Features</a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}" class="navbar-link">Contact</a>
+                </li>
+                <li>
+                    <a href="{% url 'store' %}" class="glass-btn glass-btn-primary">Explore Cars</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %} {% endblock content %}
+
+    <!-- ======================= -->
+    <!-- === Footer Section === -->
+    <!-- ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="{% url 'index' %}" class="footer-logo">
+                    Premium<span>Motors</span>
+                </a>
+                <nav class="footer-links">
+                    <a href="{% url 'index' %}" class="footer-link">Home</a>
+                    <a href="{% url 'store' %}" class="footer-link">Showroom</a>
+                    <a href=" {% url 'index' %}#features" class="footer-link 
+                    
+                    ">Features</a>
+                    <a href=" {% url 'contact' %}" class="footer-link">Contact</a>
+                </nav>
+
+                <p class="footer-copy">© 2026 Premium Motors. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

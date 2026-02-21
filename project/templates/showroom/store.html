@@ -52,21 +52,25 @@
         </div>
 
         <!-- === Brand Filter Section === -->
+
+        
+
+          
         <div class="filter-section">
           <h3 class="filter-title">Brand</h3>
           
-          {% for car in car %}
-          <label class="filter-checkbox">
-            <input type="checkbox" class="brand-filter" value="{{car.brand}}" />
+        {% for item in brands %}
+                    <label class="filter-checkbox">
+            <input type="checkbox" class="brand-filter" value="{{item.brand}}" />
             <span class="checkmark">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </span>
-            {{car.brand}}
+            {{item.brand}} ({{item.count}})
           </label>
-          {% endfor %}
+        {% endfor %}
             
 
         </div>

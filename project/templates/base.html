@@ -44,7 +44,7 @@
                     <a href="{% url 'index' %}#features" class="navbar-link">Features</a>
                 </li>
                 <li>
-                    <a href="{% url 'contact' %}" class="navbar-link">Contact</a>
+                    <a href="{% url 'contact' %}" class="navbar-link {% if request.resolver_match.url_name == 'contact' %} active {% endif %}">Contact</a>
                 </li>
                 <li>
                     <a href="{% url 'store' %}" class="glass-btn glass-btn-primary">Explore Cars</a>

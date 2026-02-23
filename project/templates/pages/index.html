@@ -102,50 +102,25 @@ Luxury Car Showroom {% endblock title %} {% block content %}
     </h2>
     <div class="cars-grid">
       <!-- === Featured Car #1 === -->
-      <article class="car-card glass-card fade-in" onclick="goToStore()">
-        <div class="car-card-image">
-          <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=800&q=80"
-            alt="Porsche 911 Turbo S" />
-          <span class="car-card-badge">2024</span>
-        </div>
-        <div class="car-card-content">
-          <h3 class="car-card-title">Porsche <span>911 Turbo S</span></h3>
-          <p class="car-card-tagline">The Pinnacle of Performance</p>
-          <div class="car-card-specs">
-            <span>640 HP</span>
-            <span>2.6s 0-60</span>
-            <span>AWD</span>
-          </div>
-          <div class="car-card-footer">
-            <span class="car-card-price">$230,700</span>
-            <div class="car-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </article>
 
-      <!-- === Featured Car #2 === -->
-      <article class="car-card glass-card fade-in" onclick="goToStore()">
+      
+      {% for car in featured_cars %}
+        <article class="car-card glass-card fade-in" onclick="window.location.href='{% url 'car_details' car.pk %}'">
         <div class="car-card-image">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80"
-            alt="Mercedes-AMG GT 63 S" />
-          <span class="car-card-badge">2024</span>
+          <img loading="lazy" src="{{car.hero_image}}"
+            alt="{{car.brand}} {{car.model}}" />
+          <span class="car-card-badge">{{car.badge_text}}</span>
         </div>
         <div class="car-card-content">
-          <h3 class="car-card-title">Mercedes-AMG <span>GT 63 S</span></h3>
-          <p class="car-card-tagline">Handcrafted Performance</p>
+          <h3 class="car-card-title">{{car.brand}} <span>{{car.model}}</span></h3>
+          <p class="car-card-tagline">{{car.tagline}}</p>
           <div class="car-card-specs">
-            <span>630 HP</span>
-            <span>3.1s 0-60</span>
-            <span>AWD</span>
+            <span>{{car.horsepower}}</span>
+            <span>{{car.acceleration}} 0-60</span>
+            <span>{{car.drivetrain}}</span>
           </div>
           <div class="car-card-footer">
-            <span class="car-card-price">$182,900</span>
+            <span class="car-card-price">{{car.display_price}}</span>
             <div class="car-card-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -156,34 +131,10 @@ Luxury Car Showroom {% endblock title %} {% block content %}
           </div>
         </div>
       </article>
+      {% endfor %}
+        
+      
 
-      <!-- === Featured Car #3 === -->
-      <article class="car-card glass-card fade-in" onclick="goToStore()">
-        <div class="car-card-image">
-          <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80"
-            alt="Audi R8 V10 Performance" />
-          <span class="car-card-badge">2024</span>
-        </div>
-        <div class="car-card-content">
-          <h3 class="car-card-title">Audi <span>R8 V10 Performance</span></h3>
-          <p class="car-card-tagline">Born on the Track</p>
-          <div class="car-card-specs">
-            <span>602 HP</span>
-            <span>3.2s 0-60</span>
-            <span>AWD</span>
-          </div>
-          <div class="car-card-footer">
-            <span class="car-card-price">$196,700</span>
-            <div class="car-card-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </article>
     </div>
     <div style="text-align: center; margin-top: var(--spacing-xl)">
       <a href="{% url 'store' %}" class="glass-btn glass-btn-primary fade-in">

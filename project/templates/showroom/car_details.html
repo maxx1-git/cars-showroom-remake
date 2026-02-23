@@ -40,7 +40,7 @@
           </svg>
           View Gallery
         </a>
-        <a href="#contact" class="glass-btn">Schedule a Viewing</a>
+        <a href="{% url 'contact' %}" class="glass-btn">Schedule a Viewing</a>
       </div>
     </div>
   </div>
@@ -163,7 +163,7 @@
   <div class="container">
     <div class="about-card glass-card fade-in">
       <h2 class="section-title" style="text-align: left; margin-bottom: var(--spacing-md)">
-        About the <span class="text-gradient-blue">{{car.model}}</span>
+        About the <span class="text-gradient-blue">{{car.brand}} {{car.model}}</span>
       </h2>
 
       <p class="about-text">

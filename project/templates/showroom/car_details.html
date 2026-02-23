@@ -6,7 +6,7 @@
 
 <section class="hero">
   <div class="hero-bg">
-    <img src="{{car.hero_image}}" alt="{{car.brand}} {{car.model}}" />
+    <img loading="lazy" src="{{car.hero_image}}" alt="{{car.brand}} {{car.model}}" />
   </div>
 
   <div class="container">
@@ -330,7 +330,7 @@
         
         {% for gallery_exterior_item in car.gallery_exterior %}
                   <div class="gallery-item">
-          <img src="{{gallery_exterior_item}}"
+          <img loading="lazy" src="{{gallery_exterior_item}}"
             alt="Gallery Exterior Image" />
           <div class="gallery-overlay">
             <span style="font-size: var(--font-size-sm)">Click to enlarge</span>
@@ -353,7 +353,7 @@
         
         {% for gallery_interior_item in car.gallery_interior %}
                   <div class="gallery-item">
-          <img src="{{gallery_interior_item}}"
+          <img loading="lazy" src="{{gallery_interior_item}}"
             alt="Gallery Interior Image" />
           <div class="gallery-overlay">
             <span style="font-size: var(--font-size-sm)">Click to enlarge</span>
@@ -505,14 +505,14 @@
       </a>
     </div>
 
-    <div class="cars-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))">
+    <div class="cars-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); justify-items: center; ">
       <!-- === Similar Car #1 === -->
 
       
       {% for similar_car in car.similar_cars.all %}
               <article class="car-card glass-card fade-in" onclick="window.location.href = 'details.html'">
         <div class="car-card-image">
-          <img src="{{similar_car.hero_image}}"
+          <img loading="lazy" src="{{similar_car.hero_image}}"
             alt="{{similar_car.brand}} {{similar_car.model}}" />
           <span class="car-card-badge">{{similar_car.year}}</span>
         </div>

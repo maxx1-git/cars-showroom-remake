@@ -130,7 +130,7 @@
             data-brand="{{car.brand}}" data-condition="new" data-price="{{car.starting_price}}"
             onclick="window.location.href='{% url 'car_details' car.pk %}'">
             <div class="car-card-image">
-              <img src="{{car.hero_image}}" alt="{{car.brand}} {{car.model}}" />
+              <img src="{{car.hero_image}}" loading="lazy" alt="{{car.brand}} {{car.model}}" />
               <span class="car-card-badge">{{car.year}}</span>
             </div>
             <div class="car-card-content">

@@ -510,7 +510,7 @@
 
       
       {% for similar_car in car.similar_cars.all %}
-              <article class="car-card glass-card fade-in" onclick="window.location.href = 'details.html'">
+              <article class="car-card glass-card fade-in" onclick="window.location.href='{% url 'car_details' similar_car.pk %}'">
         <div class="car-card-image">
           <img loading="lazy" src="{{similar_car.hero_image}}"
             alt="{{similar_car.brand}} {{similar_car.model}}" />

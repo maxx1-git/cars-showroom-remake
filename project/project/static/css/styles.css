@@ -443,6 +443,47 @@ textarea {
 .navbar-link.active::after {
   width: 100%;
 }
+/* === Mobile Navigation === */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--spacing-xs);
+}
+.navbar-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: flex;
+  }
+  .navbar-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+  flex-direction: column;
+  padding: var(--spacing-lg);
+  background: rgba(10, 11, 15, 0.98);
+  backdrop-filter: var(--blur-glass);
+  border-bottom: 1px solid var(--border-subtle);
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+
+  }
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 
 /* ===================== */
 /* === HERO SECTION === */
@@ -788,6 +829,11 @@ textarea {
   border-radius: var(--radius-full);
   margin-top: var(--spacing-lg);
 }
+@media (max-width: 768px) {
+  .about-accent{
+    width: 200px;
+  }
+}
 
 /* ======================= */
 /* === Footer Section === */
@@ -1015,6 +1061,20 @@ textarea {
   color: var(--text-muted);
 }
 
+
+/* === Mobile Filters === */
+@media (max-width: 1024px){
+  .store-layout{
+    grid-template-columns: 1fr;
+  }
+  .filters-sidebar{
+    display: none;
+  }
+
+}
+
+
+
 /* ============================ */
 /* === Details Page Styles === */
 /* ========================== */
@@ -1067,12 +1127,15 @@ textarea {
 }
 
 .gallery-item img {
-  width: 100%;
-  height: 100%;
+  width: 292px;
+  height: 218px;
   object-fit: cover;
   transition: transform var(--transition-slow);
 }
-
+.gallery-item:first-child img {
+  width: 604px;
+  height: 452px;
+}
 .gallery-item:hover {
   border-color: var(--border-hover);
   box-shadow: var(--shadow-glow);
@@ -1222,4 +1285,51 @@ textarea {
   color: var(--accent-primary);
   transform: scale(1.1);
 
+}
+
+
+/* ========================== */
+/* === Responsive Styles === */
+/* ======================== */
+
+
+@media (max-width: 768px) {
+  .section{
+    padding: var(--spacing-xl) 0;
+  }
+  .section-title{
+    font-size: var(--font-size-2xl);
+  }
+  .specs-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .features-grid{
+    grid-template-columns: 1fr;
+  }
+  .gallery-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-item:first-child{
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .cars-grid{
+    grid-template-columns: 1fr;
+  }
+}
+
+.hide-mobile{
+  display: block;
+}
+.hide-desktop{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hide-mobile{
+    display: none;
+  }
+  .hide-desktop{
+    display: block;
+  }
 }
